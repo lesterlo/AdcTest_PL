@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x863AA4F7E5D1D124",
+      "boundary_crc": "0xC82A838F30459C6F",
       "device": "xczu1cg-sbva484-1-e",
       "name": "MainBlock",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -63,13 +63,13 @@
           "SS_I": {
             "physical_name": "ADC_SPI_ss_i",
             "direction": "I",
-            "left": "1",
+            "left": "0",
             "right": "0"
           },
           "SS_O": {
             "physical_name": "ADC_SPI_ss_o",
             "direction": "O",
-            "left": "1",
+            "left": "0",
             "right": "0"
           },
           "SS_T": {
@@ -140,20 +140,8 @@
         "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
         "vlnv": "xilinx.com:interface:gpio_rtl:1.0",
         "port_maps": {
-          "TRI_I": {
-            "physical_name": "RGB_LED2_tri_i",
-            "direction": "I",
-            "left": "2",
-            "right": "0"
-          },
           "TRI_O": {
             "physical_name": "RGB_LED2_tri_o",
-            "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "TRI_T": {
-            "physical_name": "RGB_LED2_tri_t",
             "direction": "O",
             "left": "2",
             "right": "0"
@@ -1586,8 +1574,11 @@
         "xci_path": "ip\\MainBlock_axi_quad_spi_0_0\\MainBlock_axi_quad_spi_0_0.xci",
         "inst_hier_path": "axi_quad_spi_0",
         "parameters": {
+          "C_NUM_SS_BITS": {
+            "value": "1"
+          },
           "QSPI_BOARD_INTERFACE": {
-            "value": "click_spi_pl"
+            "value": "Custom"
           },
           "USE_BOARD_FLOW": {
             "value": "true"
@@ -1763,6 +1754,12 @@
         "xci_path": "ip\\MainBlock_axi_gpio_0_0\\MainBlock_axi_gpio_0_0.xci",
         "inst_hier_path": "axi_gpio_0",
         "parameters": {
+          "C_ALL_OUTPUTS": {
+            "value": "1"
+          },
+          "C_ALL_OUTPUTS_2": {
+            "value": "1"
+          },
           "C_GPIO2_WIDTH": {
             "value": "3"
           },

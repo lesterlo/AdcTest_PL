@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
--- Date        : Tue Nov 26 10:09:32 2024
+-- Date        : Tue Nov 26 11:16:23 2024
 -- Host        : AEI-D0005 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/FPGA_ws/vivado_ws/AdcTest_PL/SourceData/BlockDesign/MainBlock/ip/MainBlock_axi_quad_spi_0_0/MainBlock_axi_quad_spi_0_0_stub.vhdl
@@ -44,8 +44,8 @@ entity MainBlock_axi_quad_spi_0_0 is
     sck_i : in STD_LOGIC;
     sck_o : out STD_LOGIC;
     sck_t : out STD_LOGIC;
-    ss_i : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    ss_o : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    ss_i : in STD_LOGIC_VECTOR ( 0 to 0 );
+    ss_o : out STD_LOGIC_VECTOR ( 0 to 0 );
     ss_t : out STD_LOGIC;
     ip2intc_irpt : out STD_LOGIC
   );
@@ -53,7 +53,7 @@ entity MainBlock_axi_quad_spi_0_0 is
   attribute CHECK_LICENSE_TYPE : string;
   attribute CHECK_LICENSE_TYPE of MainBlock_axi_quad_spi_0_0 : entity is "MainBlock_axi_quad_spi_0_0,axi_quad_spi,{}";
   attribute core_generation_info : string;
-  attribute core_generation_info of MainBlock_axi_quad_spi_0_0 : entity is "MainBlock_axi_quad_spi_0_0,axi_quad_spi,{x_ipProduct=Vivado 2024.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_quad_spi,x_ipVersion=3.2,x_ipCoreRevision=32,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Async_Clk=0,C_FAMILY=zynquplus,C_SELECT_XPM=0,C_SUB_FAMILY=zynquplus,C_INSTANCE=axi_quad_spi_inst,C_SPI_MEM_ADDR_BITS=24,C_TYPE_OF_AXI4_INTERFACE=0,C_XIP_MODE=0,C_XIP_PERF_MODE=1,C_BYTE_LEVEL_INTERRUPT_EN=0,C_UC_FAMILY=1,C_FIFO_DEPTH=16,C_SCK_RATIO=16,C_DUAL_QUAD_MODE=0,C_NUM_SS_BITS=2,C_NUM_TRANSFER_BITS=8,C_NEW_SEQ_EN=1,C_SPI_MODE=0,C_USE_STARTUP=0,C_USE_STARTUP_EXT=0,C_SPI_MEMORY=1,C_S_AXI_ADDR_WIDTH=7,C_S_AXI_DATA_WIDTH=32,C_S_AXI4_ADDR_WIDTH=24,C_S_AXI4_DATA_WIDTH=32,C_S_AXI4_ID_WIDTH=4,C_SHARED_STARTUP=0,C_S_AXI4_BASEADDR=0xFFFFFFFF,C_S_AXI4_HIGHADDR=0x00000000,C_LSB_STUP=0}";
+  attribute core_generation_info of MainBlock_axi_quad_spi_0_0 : entity is "MainBlock_axi_quad_spi_0_0,axi_quad_spi,{x_ipProduct=Vivado 2024.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_quad_spi,x_ipVersion=3.2,x_ipCoreRevision=32,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Async_Clk=0,C_FAMILY=zynquplus,C_SELECT_XPM=0,C_SUB_FAMILY=zynquplus,C_INSTANCE=axi_quad_spi_inst,C_SPI_MEM_ADDR_BITS=24,C_TYPE_OF_AXI4_INTERFACE=0,C_XIP_MODE=0,C_XIP_PERF_MODE=1,C_BYTE_LEVEL_INTERRUPT_EN=0,C_UC_FAMILY=1,C_FIFO_DEPTH=16,C_SCK_RATIO=16,C_DUAL_QUAD_MODE=0,C_NUM_SS_BITS=1,C_NUM_TRANSFER_BITS=8,C_NEW_SEQ_EN=1,C_SPI_MODE=0,C_USE_STARTUP=0,C_USE_STARTUP_EXT=0,C_SPI_MEMORY=1,C_S_AXI_ADDR_WIDTH=7,C_S_AXI_DATA_WIDTH=32,C_S_AXI4_ADDR_WIDTH=24,C_S_AXI4_DATA_WIDTH=32,C_S_AXI4_ID_WIDTH=4,C_SHARED_STARTUP=0,C_S_AXI4_BASEADDR=0xFFFFFFFF,C_S_AXI4_HIGHADDR=0x00000000,C_LSB_STUP=0}";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of MainBlock_axi_quad_spi_0_0 : entity is "yes";
 end MainBlock_axi_quad_spi_0_0;
@@ -62,7 +62,7 @@ architecture stub of MainBlock_axi_quad_spi_0_0 is
   attribute syn_black_box : boolean;
   attribute black_box_pad_pin : string;
   attribute syn_black_box of stub : architecture is true;
-  attribute black_box_pad_pin of stub : architecture is "ext_spi_clk,s_axi_aclk,s_axi_aresetn,s_axi_awaddr[6:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[6:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,io0_i,io0_o,io0_t,io1_i,io1_o,io1_t,sck_i,sck_o,sck_t,ss_i[1:0],ss_o[1:0],ss_t,ip2intc_irpt";
+  attribute black_box_pad_pin of stub : architecture is "ext_spi_clk,s_axi_aclk,s_axi_aresetn,s_axi_awaddr[6:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[6:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,io0_i,io0_o,io0_t,io1_i,io1_o,io1_t,sck_i,sck_o,sck_t,ss_i[0:0],ss_o[0:0],ss_t,ip2intc_irpt";
   attribute x_interface_info : string;
   attribute x_interface_info of ext_spi_clk : signal is "xilinx.com:signal:clock:1.0 spi_clk CLK";
   attribute x_interface_mode : string;

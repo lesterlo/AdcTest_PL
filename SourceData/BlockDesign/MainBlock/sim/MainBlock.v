@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-//Date        : Tue Nov 26 10:07:36 2024
+//Date        : Tue Nov 26 11:14:41 2024
 //Host        : AEI-D0005 running 64-bit major release  (build 9200)
 //Command     : generate_target MainBlock.bd
 //Design      : MainBlock
@@ -26,9 +26,7 @@ module MainBlock
     ADC_SPI_ss_t,
     ADC_nRST_tri_o,
     RGB_LED1_tri_o,
-    RGB_LED2_tri_i,
     RGB_LED2_tri_o,
-    RGB_LED2_tri_t,
     TempSensor_IIC_scl_i,
     TempSensor_IIC_scl_o,
     TempSensor_IIC_scl_t,
@@ -44,14 +42,12 @@ module MainBlock
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SCK_I" *) input ADC_SPI_sck_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SCK_O" *) output ADC_SPI_sck_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SCK_T" *) output ADC_SPI_sck_t;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SS_I" *) input [1:0]ADC_SPI_ss_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SS_O" *) output [1:0]ADC_SPI_ss_o;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SS_I" *) input [0:0]ADC_SPI_ss_i;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SS_O" *) output [0:0]ADC_SPI_ss_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SS_T" *) output ADC_SPI_ss_t;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ADC_nRST TRI_O" *) (* X_INTERFACE_MODE = "Master" *) output [0:0]ADC_nRST_tri_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 RGB_LED1 TRI_O" *) (* X_INTERFACE_MODE = "Master" *) output [2:0]RGB_LED1_tri_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 RGB_LED2 TRI_I" *) (* X_INTERFACE_MODE = "Master" *) input [2:0]RGB_LED2_tri_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 RGB_LED2 TRI_O" *) output [2:0]RGB_LED2_tri_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 RGB_LED2 TRI_T" *) output [2:0]RGB_LED2_tri_t;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 RGB_LED2 TRI_O" *) (* X_INTERFACE_MODE = "Master" *) output [2:0]RGB_LED2_tri_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 TempSensor_IIC SCL_I" *) (* X_INTERFACE_MODE = "Master" *) input TempSensor_IIC_scl_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 TempSensor_IIC SCL_O" *) output TempSensor_IIC_scl_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 TempSensor_IIC SCL_T" *) output TempSensor_IIC_scl_t;
@@ -68,14 +64,12 @@ module MainBlock
   wire ADC_SPI_sck_i;
   wire ADC_SPI_sck_o;
   wire ADC_SPI_sck_t;
-  wire [1:0]ADC_SPI_ss_i;
-  wire [1:0]ADC_SPI_ss_o;
+  wire [0:0]ADC_SPI_ss_i;
+  wire [0:0]ADC_SPI_ss_o;
   wire ADC_SPI_ss_t;
   wire [0:0]ADC_nRST_tri_o;
   wire [2:0]RGB_LED1_tri_o;
-  wire [2:0]RGB_LED2_tri_i;
   wire [2:0]RGB_LED2_tri_o;
-  wire [2:0]RGB_LED2_tri_t;
   wire TempSensor_IIC_scl_i;
   wire TempSensor_IIC_scl_o;
   wire TempSensor_IIC_scl_t;
@@ -233,9 +227,7 @@ module MainBlock
   wire zynq_ultra_ps_e_0_pl_resetn0;
 
   MainBlock_axi_gpio_0_0 axi_gpio_0
-       (.gpio2_io_i(RGB_LED2_tri_i),
-        .gpio2_io_o(RGB_LED2_tri_o),
-        .gpio2_io_t(RGB_LED2_tri_t),
+       (.gpio2_io_o(RGB_LED2_tri_o),
         .gpio_io_o(RGB_LED1_tri_o),
         .s_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .s_axi_araddr(axi_smc_M01_AXI_ARADDR),

@@ -26,9 +26,7 @@ module MainBlock (
   TempSensor_IIC_sda_o,
   TempSensor_IIC_sda_t,
   RGB_LED1_tri_o,
-  RGB_LED2_tri_i,
-  RGB_LED2_tri_o,
-  RGB_LED2_tri_t
+  RGB_LED2_tri_o
 );
 
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI IO0_I" *)
@@ -51,9 +49,9 @@ module MainBlock (
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SCK_T" *)
   output ADC_SPI_sck_t;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SS_I" *)
-  input [1:0]ADC_SPI_ss_i;
+  input [0:0]ADC_SPI_ss_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SS_O" *)
-  output [1:0]ADC_SPI_ss_o;
+  output [0:0]ADC_SPI_ss_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ADC_SPI SS_T" *)
   output ADC_SPI_ss_t;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ADC_nRST TRI_O" *)
@@ -75,13 +73,9 @@ module MainBlock (
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 RGB_LED1 TRI_O" *)
   (* X_INTERFACE_MODE = "master RGB_LED1" *)
   output [2:0]RGB_LED1_tri_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 RGB_LED2 TRI_I" *)
-  (* X_INTERFACE_MODE = "master RGB_LED2" *)
-  input [2:0]RGB_LED2_tri_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 RGB_LED2 TRI_O" *)
+  (* X_INTERFACE_MODE = "master RGB_LED2" *)
   output [2:0]RGB_LED2_tri_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 RGB_LED2 TRI_T" *)
-  output [2:0]RGB_LED2_tri_t;
 
   // stub module has no contents
 
