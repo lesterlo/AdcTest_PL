@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
--- Date        : Tue Nov 26 10:09:16 2024
+-- Date        : Fri Nov 29 16:20:21 2024
 -- Host        : AEI-D0005 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/FPGA_ws/vivado_ws/AdcTest_PL/SourceData/BlockDesign/MainBlock/ip/MainBlock_zynq_ultra_ps_e_0_0/MainBlock_zynq_ultra_ps_e_0_0_sim_netlist.vhdl
@@ -833,9 +833,9 @@ entity MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e is
     emio_sdio0_cmdout : out STD_LOGIC;
     emio_sdio0_cmdin : in STD_LOGIC;
     emio_sdio0_cmdena : out STD_LOGIC;
-    emio_sdio0_datain : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    emio_sdio0_dataout : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    emio_sdio0_dataena : out STD_LOGIC_VECTOR ( 4 downto 0 );
+    emio_sdio0_datain : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    emio_sdio0_dataout : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    emio_sdio0_dataena : out STD_LOGIC_VECTOR ( 7 downto 0 );
     emio_sdio0_cd_n : in STD_LOGIC;
     emio_sdio0_wp : in STD_LOGIC;
     emio_sdio0_ledcontrol : out STD_LOGIC;
@@ -1560,7 +1560,7 @@ entity MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e is
   attribute C_SAXIGP6_DATA_WIDTH : integer;
   attribute C_SAXIGP6_DATA_WIDTH of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e : entity is 128;
   attribute C_SD0_INTERNAL_BUS_WIDTH : integer;
-  attribute C_SD0_INTERNAL_BUS_WIDTH of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e : entity is 5;
+  attribute C_SD0_INTERNAL_BUS_WIDTH of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e : entity is 8;
   attribute C_SD1_INTERNAL_BUS_WIDTH : integer;
   attribute C_SD1_INTERNAL_BUS_WIDTH of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e : entity is 4;
   attribute C_TRACE_DATA_WIDTH : integer;
@@ -1602,17 +1602,17 @@ entity MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e is
  "UART0_RXD, , , IN, PS_MIO10_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
  "UART0_TXD, , , OUT, PS_MIO11_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
  "GPIO0_GPIO0[12], , , INOUT, PS_MIO12_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[13], , , INOUT, PS_MIO13_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[14], , , INOUT, PS_MIO14_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[15], , , INOUT, PS_MIO15_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[16], , , INOUT, PS_MIO16_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[17], , , INOUT, PS_MIO17_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[18], , , INOUT, PS_MIO18_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[19], , , INOUT, PS_MIO19_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[20], , , INOUT, PS_MIO20_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[21], , , INOUT, PS_MIO21_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[22], , , INOUT, PS_MIO22_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[23], , , INOUT, PS_MIO23_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[0], , , INOUT, PS_MIO13_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[1], , , INOUT, PS_MIO14_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[2], , , INOUT, PS_MIO15_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[3], , , INOUT, PS_MIO16_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[4], , , INOUT, PS_MIO17_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[5], , , INOUT, PS_MIO18_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[6], , , INOUT, PS_MIO19_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[7], , , INOUT, PS_MIO20_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_CMD_OUT, , , INOUT, PS_MIO21_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_CLK_OUT, , , OUT, PS_MIO22_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_BUS_POW, , , OUT, PS_MIO23_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
  "GPIO0_GPIO0[24], , , INOUT, PS_MIO24_500, LVCMOS18, 12, FAST, PULLDOWN, PS_MIO_LVCMOS18_F_12,,  " & LF &
  "GPIO0_GPIO0[25], , , INOUT, PS_MIO25_500, LVCMOS18, 12, FAST, PULLDOWN, PS_MIO_LVCMOS18_F_12,,  " & LF &
  "PMU_GPI[0], , , IN, PS_MIO26_501, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
@@ -1752,7 +1752,7 @@ entity MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e is
   attribute PSS_JITTER : string;
   attribute PSS_JITTER of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e : entity is "<PSS_EXTERNAL_CLOCKS><EXTERNAL_CLOCK name={PLCLK[0]} clock_external_divide={15} vco_name={IOPLL} vco_freq={1500.000} vco_internal_divide={1}/></PSS_EXTERNAL_CLOCKS>";
   attribute PSS_POWER : string;
-  attribute PSS_POWER of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e : entity is "<BLOCKTYPE name={PS8}> <PS8><FPD><PROCESSSORS><PROCESSOR name={Cortex A-53} numCores={2} L2Cache={Enable} clockFreq={1200.000000} load={0.5}/><PROCESSOR name={GPU Mali-400 MP} numCores={0} clockFreq={0} load={0.5} /></PROCESSSORS><PLLS><PLL domain={APU} vco={2399.976} /><PLL domain={DDR} vco={2133.312} /><PLL domain={Video} vco={2366.643} /></PLLS><MEMORY memType={LPDDR4} dataWidth={4} clockFreq={533.333} readRate={0.5} writeRate={0.5} cmdAddressActivity={0.5} /><SERDES><GT name={PCIe} standard={} lanes={} usageRate={0.5} /><GT name={SATA} standard={} lanes={} usageRate={0.5} /><GT name={Display Port} standard={} lanes={} usageRate={0.5} />clockFreq={} /><GT name={USB3} standard={USB3.0} lanes={0}usageRate={0.5} /><GT name={SGMII} standard={SGMII} lanes={0} usageRate={0.5} /></SERDES><AFI master={2} slave={0} clockFreq={100.000} usageRate={0.5} /><FPINTERCONNECT clockFreq={533.333313} Bandwidth={Low} /></FPD><LPD><PROCESSSORS><PROCESSOR name={Cortex R-5} usage={Enable} TCM={Enable} OCM={Enable} clockFreq={500.000000} load={0.5}/></PROCESSSORS><PLLS><PLL domain={IO} vco={1499.985} /><PLL domain={RPLL} vco={2333.310} /></PLLS><CSUPMU><Unit name={CSU} usageRate={0.5} clockFreq={500} /><Unit name={PMU} usageRate={0.5} clockFreq={180} /></CSUPMU><GPIO><Bank ioBank={VCC_PSIO0} number={15} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO1} number={13} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO2} number={0} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO3} number={16} io_standard={LVCMOS 1.8V} /></GPIO><IOINTERFACES> <IO name={QSPI} io_standard={} ioBank={VCC_PSIO0} clockFreq={300.000000} inputs={0} outputs={3} inouts={4} usageRate={0.5}/><IO name={NAND 3.1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={USB0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={USB1} io_standard={} ioBank={VCC_PSIO2} clockFreq={250.000000} inputs={3} outputs={1} inouts={8} usageRate={0.5}/><IO name={GigabitEth0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GigabitEth1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GigabitEth2} io_standard={} ioBank={VCC_PSIO2} clockFreq={125.000000} inputs={6} outputs={6} inouts={0} usageRate={0.5}/><IO name={GigabitEth3} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GPIO 0} io_standard={} ioBank={VCC_PSIO0} clockFreq={1} inputs={0} outputs={0} inouts={15} usageRate={0.5}/><IO name={GPIO 1} io_standard={} ioBank={VCC_PSIO1} clockFreq={1} inputs={0} outputs={0} inouts={13} usageRate={0.5}/><IO name={GPIO 2} io_standard={} ioBank={VCC_PSIO2} clockFreq={1} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={GPIO 3} io_standard={} ioBank={VCC_PSIO3} clockFreq={1} inputs={} outputs={} inouts={16} usageRate={0.5}/><IO name={UART0} io_standard={} ioBank={VCC_PSIO0} clockFreq={100.000000} inputs={1} outputs={1} inouts={0} usageRate={0.5}/><IO name={UART1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={I2C0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={I2C1} io_standard={} ioBank={VCC_PSIO0} clockFreq={100.000000} inputs={0} outputs={0} inouts={2} usageRate={0.5}/><IO name={SPI0} io_standard={} ioBank={VCC_PSIO1} clockFreq={187.500000} inputs={0} outputs={0} inouts={4} usageRate={0.5}/><IO name={SPI1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={CAN0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={CAN1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={SD0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={SD1} io_standard={} ioBank={VCC_PSIO1} clockFreq={187.500000} inputs={1} outputs={1} inouts={5} usageRate={0.5}/><IO name={Trace} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={TTC0} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC1} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC2} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC3} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={PJTAG} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={DPAUX} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={WDT0} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={WDT1} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/></IOINTERFACES><AFI master={0} slave={0} clockFreq={333.333} usageRate={0.5} /><LPINTERCONNECT clockFreq={500.000000} Bandwidth={High} /></LPD></PS8></BLOCKTYPE>/>";
+  attribute PSS_POWER of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e : entity is "<BLOCKTYPE name={PS8}> <PS8><FPD><PROCESSSORS><PROCESSOR name={Cortex A-53} numCores={2} L2Cache={Enable} clockFreq={1200.000000} load={0.5}/><PROCESSOR name={GPU Mali-400 MP} numCores={0} clockFreq={0} load={0.5} /></PROCESSSORS><PLLS><PLL domain={APU} vco={2399.976} /><PLL domain={DDR} vco={2133.312} /><PLL domain={Video} vco={2366.643} /></PLLS><MEMORY memType={LPDDR4} dataWidth={4} clockFreq={533.333} readRate={0.5} writeRate={0.5} cmdAddressActivity={0.5} /><SERDES><GT name={PCIe} standard={} lanes={} usageRate={0.5} /><GT name={SATA} standard={} lanes={} usageRate={0.5} /><GT name={Display Port} standard={} lanes={} usageRate={0.5} />clockFreq={} /><GT name={USB3} standard={USB3.0} lanes={0}usageRate={0.5} /><GT name={SGMII} standard={SGMII} lanes={0} usageRate={0.5} /></SERDES><AFI master={2} slave={0} clockFreq={100.000} usageRate={0.5} /><FPINTERCONNECT clockFreq={533.333313} Bandwidth={Low} /></FPD><LPD><PROCESSSORS><PROCESSOR name={Cortex R-5} usage={Enable} TCM={Enable} OCM={Enable} clockFreq={500.000000} load={0.5}/></PROCESSSORS><PLLS><PLL domain={IO} vco={1499.985} /><PLL domain={RPLL} vco={2333.310} /></PLLS><CSUPMU><Unit name={CSU} usageRate={0.5} clockFreq={500} /><Unit name={PMU} usageRate={0.5} clockFreq={180} /></CSUPMU><GPIO><Bank ioBank={VCC_PSIO0} number={4} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO1} number={13} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO2} number={0} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO3} number={16} io_standard={LVCMOS 1.8V} /></GPIO><IOINTERFACES> <IO name={QSPI} io_standard={} ioBank={VCC_PSIO0} clockFreq={300.000000} inputs={0} outputs={3} inouts={4} usageRate={0.5}/><IO name={NAND 3.1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={USB0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={USB1} io_standard={} ioBank={VCC_PSIO2} clockFreq={250.000000} inputs={3} outputs={1} inouts={8} usageRate={0.5}/><IO name={GigabitEth0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GigabitEth1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GigabitEth2} io_standard={} ioBank={VCC_PSIO2} clockFreq={125.000000} inputs={6} outputs={6} inouts={0} usageRate={0.5}/><IO name={GigabitEth3} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GPIO 0} io_standard={} ioBank={VCC_PSIO0} clockFreq={1} inputs={0} outputs={0} inouts={4} usageRate={0.5}/><IO name={GPIO 1} io_standard={} ioBank={VCC_PSIO1} clockFreq={1} inputs={0} outputs={0} inouts={13} usageRate={0.5}/><IO name={GPIO 2} io_standard={} ioBank={VCC_PSIO2} clockFreq={1} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={GPIO 3} io_standard={} ioBank={VCC_PSIO3} clockFreq={1} inputs={} outputs={} inouts={16} usageRate={0.5}/><IO name={UART0} io_standard={} ioBank={VCC_PSIO0} clockFreq={100.000000} inputs={1} outputs={1} inouts={0} usageRate={0.5}/><IO name={UART1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={I2C0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={I2C1} io_standard={} ioBank={VCC_PSIO0} clockFreq={100.000000} inputs={0} outputs={0} inouts={2} usageRate={0.5}/><IO name={SPI0} io_standard={} ioBank={VCC_PSIO1} clockFreq={187.500000} inputs={0} outputs={0} inouts={4} usageRate={0.5}/><IO name={SPI1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={CAN0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={CAN1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={SD0} io_standard={} ioBank={VCC_PSIO0} clockFreq={187.500000} inputs={0} outputs={2} inouts={9} usageRate={0.5}/><IO name={SD1} io_standard={} ioBank={VCC_PSIO1} clockFreq={187.500000} inputs={1} outputs={1} inouts={5} usageRate={0.5}/><IO name={Trace} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={TTC0} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC1} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC2} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC3} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={PJTAG} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={DPAUX} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={WDT0} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={WDT1} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/></IOINTERFACES><AFI master={0} slave={0} clockFreq={333.333} usageRate={0.5} /><LPINTERCONNECT clockFreq={500.000000} Bandwidth={High} /></LPD></PS8></BLOCKTYPE>/>";
 end MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e;
 
 architecture STRUCTURE of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultra_ps_e is
@@ -3704,6 +3704,9 @@ architecture STRUCTURE of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_z
   signal PS8_i_n_3235 : STD_LOGIC;
   signal PS8_i_n_3236 : STD_LOGIC;
   signal PS8_i_n_3237 : STD_LOGIC;
+  signal PS8_i_n_3246 : STD_LOGIC;
+  signal PS8_i_n_3247 : STD_LOGIC;
+  signal PS8_i_n_3248 : STD_LOGIC;
   signal PS8_i_n_3249 : STD_LOGIC;
   signal PS8_i_n_3250 : STD_LOGIC;
   signal PS8_i_n_3251 : STD_LOGIC;
@@ -4554,7 +4557,7 @@ architecture STRUCTURE of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_z
   signal PS8_i_n_998 : STD_LOGIC;
   signal PS8_i_n_999 : STD_LOGIC;
   signal emio_sdio0_cmdena_i : STD_LOGIC;
-  signal emio_sdio0_dataena_i : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal emio_sdio0_dataena_i : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal emio_sdio1_cmdena_i : STD_LOGIC;
   signal emio_sdio1_dataena_i : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal pl_clk_unbuffered : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -4639,8 +4642,6 @@ architecture STRUCTURE of MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_z
   signal NLW_PS8_i_PSS_ALTO_CORE_PAD_ZQ_UNCONNECTED : STD_LOGIC;
   signal NLW_PS8_i_EMIOGPIOO_UNCONNECTED : STD_LOGIC_VECTOR ( 94 downto 30 );
   signal NLW_PS8_i_EMIOGPIOTN_UNCONNECTED : STD_LOGIC_VECTOR ( 95 downto 30 );
-  signal NLW_PS8_i_EMIOSDIO0DATAENA_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 5 );
-  signal NLW_PS8_i_EMIOSDIO0DATAOUT_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 5 );
   signal NLW_PS8_i_EMIOSDIO1DATAENA_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 4 );
   signal NLW_PS8_i_EMIOSDIO1DATAOUT_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 4 );
   signal NLW_PS8_i_MAXIGP2WDATA_UNCONNECTED : STD_LOGIC_VECTOR ( 127 downto 32 );
@@ -5348,11 +5349,17 @@ begin
   emio_sdio0_clkout <= \<const0>\;
   emio_sdio0_cmdena <= \<const0>\;
   emio_sdio0_cmdout <= \<const0>\;
+  emio_sdio0_dataena(7) <= \<const0>\;
+  emio_sdio0_dataena(6) <= \<const0>\;
+  emio_sdio0_dataena(5) <= \<const0>\;
   emio_sdio0_dataena(4) <= \<const0>\;
   emio_sdio0_dataena(3) <= \<const0>\;
   emio_sdio0_dataena(2) <= \<const0>\;
   emio_sdio0_dataena(1) <= \<const0>\;
   emio_sdio0_dataena(0) <= \<const0>\;
+  emio_sdio0_dataout(7) <= \<const0>\;
+  emio_sdio0_dataout(6) <= \<const0>\;
+  emio_sdio0_dataout(5) <= \<const0>\;
   emio_sdio0_dataout(4) <= \<const0>\;
   emio_sdio0_dataout(3) <= \<const0>\;
   emio_sdio0_dataout(2) <= \<const0>\;
@@ -9188,10 +9195,11 @@ PS8_i: unisim.vcomponents.PS8
       EMIOSDIO0CMDENA => emio_sdio0_cmdena_i,
       EMIOSDIO0CMDIN => '0',
       EMIOSDIO0CMDOUT => PS8_i_n_119,
-      EMIOSDIO0DATAENA(7 downto 5) => NLW_PS8_i_EMIOSDIO0DATAENA_UNCONNECTED(7 downto 5),
-      EMIOSDIO0DATAENA(4 downto 0) => emio_sdio0_dataena_i(4 downto 0),
+      EMIOSDIO0DATAENA(7 downto 0) => emio_sdio0_dataena_i(7 downto 0),
       EMIOSDIO0DATAIN(7 downto 0) => B"00000000",
-      EMIOSDIO0DATAOUT(7 downto 5) => NLW_PS8_i_EMIOSDIO0DATAOUT_UNCONNECTED(7 downto 5),
+      EMIOSDIO0DATAOUT(7) => PS8_i_n_3246,
+      EMIOSDIO0DATAOUT(6) => PS8_i_n_3247,
+      EMIOSDIO0DATAOUT(5) => PS8_i_n_3248,
       EMIOSDIO0DATAOUT(4) => PS8_i_n_3249,
       EMIOSDIO0DATAOUT(3) => PS8_i_n_3250,
       EMIOSDIO0DATAOUT(2) => PS8_i_n_3251,
@@ -14608,8 +14616,8 @@ architecture STRUCTURE of MainBlock_zynq_ultra_ps_e_0_0 is
   signal NLW_inst_emio_gpio_t_UNCONNECTED : STD_LOGIC_VECTOR ( 29 downto 0 );
   signal NLW_inst_emio_gpio_t_n_UNCONNECTED : STD_LOGIC_VECTOR ( 29 downto 0 );
   signal NLW_inst_emio_sdio0_bus_volt_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_inst_emio_sdio0_dataena_UNCONNECTED : STD_LOGIC_VECTOR ( 4 downto 0 );
-  signal NLW_inst_emio_sdio0_dataout_UNCONNECTED : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal NLW_inst_emio_sdio0_dataena_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal NLW_inst_emio_sdio0_dataout_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_inst_emio_sdio1_bus_volt_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal NLW_inst_emio_sdio1_dataena_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal NLW_inst_emio_sdio1_dataout_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -14855,7 +14863,7 @@ architecture STRUCTURE of MainBlock_zynq_ultra_ps_e_0_0 is
   attribute C_SAXIGP6_DATA_WIDTH : integer;
   attribute C_SAXIGP6_DATA_WIDTH of inst : label is 128;
   attribute C_SD0_INTERNAL_BUS_WIDTH : integer;
-  attribute C_SD0_INTERNAL_BUS_WIDTH of inst : label is 5;
+  attribute C_SD0_INTERNAL_BUS_WIDTH of inst : label is 8;
   attribute C_SD1_INTERNAL_BUS_WIDTH : integer;
   attribute C_SD1_INTERNAL_BUS_WIDTH of inst : label is 4;
   attribute C_TRACE_DATA_WIDTH : integer;
@@ -14895,17 +14903,17 @@ architecture STRUCTURE of MainBlock_zynq_ultra_ps_e_0_0 is
  "UART0_RXD, , , IN, PS_MIO10_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
  "UART0_TXD, , , OUT, PS_MIO11_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
  "GPIO0_GPIO0[12], , , INOUT, PS_MIO12_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[13], , , INOUT, PS_MIO13_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[14], , , INOUT, PS_MIO14_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[15], , , INOUT, PS_MIO15_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[16], , , INOUT, PS_MIO16_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[17], , , INOUT, PS_MIO17_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[18], , , INOUT, PS_MIO18_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[19], , , INOUT, PS_MIO19_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[20], , , INOUT, PS_MIO20_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[21], , , INOUT, PS_MIO21_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[22], , , INOUT, PS_MIO22_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
- "GPIO0_GPIO0[23], , , INOUT, PS_MIO23_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[0], , , INOUT, PS_MIO13_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[1], , , INOUT, PS_MIO14_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[2], , , INOUT, PS_MIO15_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[3], , , INOUT, PS_MIO16_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[4], , , INOUT, PS_MIO17_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[5], , , INOUT, PS_MIO18_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[6], , , INOUT, PS_MIO19_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_DATA_OUT[7], , , INOUT, PS_MIO20_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_CMD_OUT, , , INOUT, PS_MIO21_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_CLK_OUT, , , OUT, PS_MIO22_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
+ "SD0_SDIO0_BUS_POW, , , OUT, PS_MIO23_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
  "GPIO0_GPIO0[24], , , INOUT, PS_MIO24_500, LVCMOS18, 12, FAST, PULLDOWN, PS_MIO_LVCMOS18_F_12,,  " & LF &
  "GPIO0_GPIO0[25], , , INOUT, PS_MIO25_500, LVCMOS18, 12, FAST, PULLDOWN, PS_MIO_LVCMOS18_F_12,,  " & LF &
  "PMU_GPI[0], , , IN, PS_MIO26_501, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &
@@ -15045,7 +15053,7 @@ architecture STRUCTURE of MainBlock_zynq_ultra_ps_e_0_0 is
   attribute PSS_JITTER : string;
   attribute PSS_JITTER of inst : label is "<PSS_EXTERNAL_CLOCKS><EXTERNAL_CLOCK name={PLCLK[0]} clock_external_divide={15} vco_name={IOPLL} vco_freq={1500.000} vco_internal_divide={1}/></PSS_EXTERNAL_CLOCKS>";
   attribute PSS_POWER : string;
-  attribute PSS_POWER of inst : label is "<BLOCKTYPE name={PS8}> <PS8><FPD><PROCESSSORS><PROCESSOR name={Cortex A-53} numCores={2} L2Cache={Enable} clockFreq={1200.000000} load={0.5}/><PROCESSOR name={GPU Mali-400 MP} numCores={0} clockFreq={0} load={0.5} /></PROCESSSORS><PLLS><PLL domain={APU} vco={2399.976} /><PLL domain={DDR} vco={2133.312} /><PLL domain={Video} vco={2366.643} /></PLLS><MEMORY memType={LPDDR4} dataWidth={4} clockFreq={533.333} readRate={0.5} writeRate={0.5} cmdAddressActivity={0.5} /><SERDES><GT name={PCIe} standard={} lanes={} usageRate={0.5} /><GT name={SATA} standard={} lanes={} usageRate={0.5} /><GT name={Display Port} standard={} lanes={} usageRate={0.5} />clockFreq={} /><GT name={USB3} standard={USB3.0} lanes={0}usageRate={0.5} /><GT name={SGMII} standard={SGMII} lanes={0} usageRate={0.5} /></SERDES><AFI master={2} slave={0} clockFreq={100.000} usageRate={0.5} /><FPINTERCONNECT clockFreq={533.333313} Bandwidth={Low} /></FPD><LPD><PROCESSSORS><PROCESSOR name={Cortex R-5} usage={Enable} TCM={Enable} OCM={Enable} clockFreq={500.000000} load={0.5}/></PROCESSSORS><PLLS><PLL domain={IO} vco={1499.985} /><PLL domain={RPLL} vco={2333.310} /></PLLS><CSUPMU><Unit name={CSU} usageRate={0.5} clockFreq={500} /><Unit name={PMU} usageRate={0.5} clockFreq={180} /></CSUPMU><GPIO><Bank ioBank={VCC_PSIO0} number={15} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO1} number={13} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO2} number={0} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO3} number={16} io_standard={LVCMOS 1.8V} /></GPIO><IOINTERFACES> <IO name={QSPI} io_standard={} ioBank={VCC_PSIO0} clockFreq={300.000000} inputs={0} outputs={3} inouts={4} usageRate={0.5}/><IO name={NAND 3.1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={USB0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={USB1} io_standard={} ioBank={VCC_PSIO2} clockFreq={250.000000} inputs={3} outputs={1} inouts={8} usageRate={0.5}/><IO name={GigabitEth0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GigabitEth1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GigabitEth2} io_standard={} ioBank={VCC_PSIO2} clockFreq={125.000000} inputs={6} outputs={6} inouts={0} usageRate={0.5}/><IO name={GigabitEth3} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GPIO 0} io_standard={} ioBank={VCC_PSIO0} clockFreq={1} inputs={0} outputs={0} inouts={15} usageRate={0.5}/><IO name={GPIO 1} io_standard={} ioBank={VCC_PSIO1} clockFreq={1} inputs={0} outputs={0} inouts={13} usageRate={0.5}/><IO name={GPIO 2} io_standard={} ioBank={VCC_PSIO2} clockFreq={1} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={GPIO 3} io_standard={} ioBank={VCC_PSIO3} clockFreq={1} inputs={} outputs={} inouts={16} usageRate={0.5}/><IO name={UART0} io_standard={} ioBank={VCC_PSIO0} clockFreq={100.000000} inputs={1} outputs={1} inouts={0} usageRate={0.5}/><IO name={UART1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={I2C0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={I2C1} io_standard={} ioBank={VCC_PSIO0} clockFreq={100.000000} inputs={0} outputs={0} inouts={2} usageRate={0.5}/><IO name={SPI0} io_standard={} ioBank={VCC_PSIO1} clockFreq={187.500000} inputs={0} outputs={0} inouts={4} usageRate={0.5}/><IO name={SPI1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={CAN0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={CAN1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={SD0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={SD1} io_standard={} ioBank={VCC_PSIO1} clockFreq={187.500000} inputs={1} outputs={1} inouts={5} usageRate={0.5}/><IO name={Trace} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={TTC0} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC1} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC2} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC3} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={PJTAG} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={DPAUX} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={WDT0} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={WDT1} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/></IOINTERFACES><AFI master={0} slave={0} clockFreq={333.333} usageRate={0.5} /><LPINTERCONNECT clockFreq={500.000000} Bandwidth={High} /></LPD></PS8></BLOCKTYPE>/>";
+  attribute PSS_POWER of inst : label is "<BLOCKTYPE name={PS8}> <PS8><FPD><PROCESSSORS><PROCESSOR name={Cortex A-53} numCores={2} L2Cache={Enable} clockFreq={1200.000000} load={0.5}/><PROCESSOR name={GPU Mali-400 MP} numCores={0} clockFreq={0} load={0.5} /></PROCESSSORS><PLLS><PLL domain={APU} vco={2399.976} /><PLL domain={DDR} vco={2133.312} /><PLL domain={Video} vco={2366.643} /></PLLS><MEMORY memType={LPDDR4} dataWidth={4} clockFreq={533.333} readRate={0.5} writeRate={0.5} cmdAddressActivity={0.5} /><SERDES><GT name={PCIe} standard={} lanes={} usageRate={0.5} /><GT name={SATA} standard={} lanes={} usageRate={0.5} /><GT name={Display Port} standard={} lanes={} usageRate={0.5} />clockFreq={} /><GT name={USB3} standard={USB3.0} lanes={0}usageRate={0.5} /><GT name={SGMII} standard={SGMII} lanes={0} usageRate={0.5} /></SERDES><AFI master={2} slave={0} clockFreq={100.000} usageRate={0.5} /><FPINTERCONNECT clockFreq={533.333313} Bandwidth={Low} /></FPD><LPD><PROCESSSORS><PROCESSOR name={Cortex R-5} usage={Enable} TCM={Enable} OCM={Enable} clockFreq={500.000000} load={0.5}/></PROCESSSORS><PLLS><PLL domain={IO} vco={1499.985} /><PLL domain={RPLL} vco={2333.310} /></PLLS><CSUPMU><Unit name={CSU} usageRate={0.5} clockFreq={500} /><Unit name={PMU} usageRate={0.5} clockFreq={180} /></CSUPMU><GPIO><Bank ioBank={VCC_PSIO0} number={4} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO1} number={13} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO2} number={0} io_standard={LVCMOS 1.8V} /><Bank ioBank={VCC_PSIO3} number={16} io_standard={LVCMOS 1.8V} /></GPIO><IOINTERFACES> <IO name={QSPI} io_standard={} ioBank={VCC_PSIO0} clockFreq={300.000000} inputs={0} outputs={3} inouts={4} usageRate={0.5}/><IO name={NAND 3.1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={USB0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={USB1} io_standard={} ioBank={VCC_PSIO2} clockFreq={250.000000} inputs={3} outputs={1} inouts={8} usageRate={0.5}/><IO name={GigabitEth0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GigabitEth1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GigabitEth2} io_standard={} ioBank={VCC_PSIO2} clockFreq={125.000000} inputs={6} outputs={6} inouts={0} usageRate={0.5}/><IO name={GigabitEth3} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={GPIO 0} io_standard={} ioBank={VCC_PSIO0} clockFreq={1} inputs={0} outputs={0} inouts={4} usageRate={0.5}/><IO name={GPIO 1} io_standard={} ioBank={VCC_PSIO1} clockFreq={1} inputs={0} outputs={0} inouts={13} usageRate={0.5}/><IO name={GPIO 2} io_standard={} ioBank={VCC_PSIO2} clockFreq={1} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={GPIO 3} io_standard={} ioBank={VCC_PSIO3} clockFreq={1} inputs={} outputs={} inouts={16} usageRate={0.5}/><IO name={UART0} io_standard={} ioBank={VCC_PSIO0} clockFreq={100.000000} inputs={1} outputs={1} inouts={0} usageRate={0.5}/><IO name={UART1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={I2C0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={I2C1} io_standard={} ioBank={VCC_PSIO0} clockFreq={100.000000} inputs={0} outputs={0} inouts={2} usageRate={0.5}/><IO name={SPI0} io_standard={} ioBank={VCC_PSIO1} clockFreq={187.500000} inputs={0} outputs={0} inouts={4} usageRate={0.5}/><IO name={SPI1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={CAN0} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={CAN1} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={SD0} io_standard={} ioBank={VCC_PSIO0} clockFreq={187.500000} inputs={0} outputs={2} inouts={9} usageRate={0.5}/><IO name={SD1} io_standard={} ioBank={VCC_PSIO1} clockFreq={187.500000} inputs={1} outputs={1} inouts={5} usageRate={0.5}/><IO name={Trace} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={TTC0} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC1} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC2} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={TTC3} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={PJTAG} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={DPAUX} io_standard={} ioBank={} clockFreq={} inputs={} outputs={} inouts={} usageRate={0.5}/><IO name={WDT0} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/><IO name={WDT1} io_standard={} ioBank={} clockFreq={100} inputs={0} outputs={0} inouts={0} usageRate={0.5}/></IOINTERFACES><AFI master={0} slave={0} clockFreq={333.333} usageRate={0.5} /><LPINTERCONNECT clockFreq={500.000000} Bandwidth={High} /></LPD></PS8></BLOCKTYPE>/>";
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of maxigp0_arlock : signal is "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_FPD ARLOCK";
   attribute X_INTERFACE_INFO of maxigp0_arready : signal is "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_FPD ARREADY";
@@ -15433,9 +15441,9 @@ inst: entity work.MainBlock_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_5_zynq_ultr
       emio_sdio0_cmdena => NLW_inst_emio_sdio0_cmdena_UNCONNECTED,
       emio_sdio0_cmdin => '0',
       emio_sdio0_cmdout => NLW_inst_emio_sdio0_cmdout_UNCONNECTED,
-      emio_sdio0_dataena(4 downto 0) => NLW_inst_emio_sdio0_dataena_UNCONNECTED(4 downto 0),
-      emio_sdio0_datain(4 downto 0) => B"00000",
-      emio_sdio0_dataout(4 downto 0) => NLW_inst_emio_sdio0_dataout_UNCONNECTED(4 downto 0),
+      emio_sdio0_dataena(7 downto 0) => NLW_inst_emio_sdio0_dataena_UNCONNECTED(7 downto 0),
+      emio_sdio0_datain(7 downto 0) => B"00000000",
+      emio_sdio0_dataout(7 downto 0) => NLW_inst_emio_sdio0_dataout_UNCONNECTED(7 downto 0),
       emio_sdio0_fb_clk_in => '0',
       emio_sdio0_ledcontrol => NLW_inst_emio_sdio0_ledcontrol_UNCONNECTED,
       emio_sdio0_wp => '1',

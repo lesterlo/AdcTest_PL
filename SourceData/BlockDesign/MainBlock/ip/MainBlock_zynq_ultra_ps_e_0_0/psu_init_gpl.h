@@ -1031,6 +1031,8 @@
 #define CRL_APB_USB3_DUAL_REF_CTRL_OFFSET                                          0XFF5E004C
 #undef CRL_APB_QSPI_REF_CTRL_OFFSET 
 #define CRL_APB_QSPI_REF_CTRL_OFFSET                                               0XFF5E0068
+#undef CRL_APB_SDIO0_REF_CTRL_OFFSET 
+#define CRL_APB_SDIO0_REF_CTRL_OFFSET                                              0XFF5E006C
 #undef CRL_APB_SDIO1_REF_CTRL_OFFSET 
 #define CRL_APB_SDIO1_REF_CTRL_OFFSET                                              0XFF5E0070
 #undef IOU_SLCR_SDIO_CLK_CTRL_OFFSET 
@@ -1311,6 +1313,48 @@
 /*
 * Clock active signal. Switch to 0 to disable the clock
 */
+#undef CRL_APB_SDIO0_REF_CTRL_CLKACT_DEFVAL 
+#undef CRL_APB_SDIO0_REF_CTRL_CLKACT_SHIFT 
+#undef CRL_APB_SDIO0_REF_CTRL_CLKACT_MASK 
+#define CRL_APB_SDIO0_REF_CTRL_CLKACT_DEFVAL                   0x01000F00
+#define CRL_APB_SDIO0_REF_CTRL_CLKACT_SHIFT                    24
+#define CRL_APB_SDIO0_REF_CTRL_CLKACT_MASK                     0x01000000U
+
+/*
+* 6 bit divider
+*/
+#undef CRL_APB_SDIO0_REF_CTRL_DIVISOR1_DEFVAL 
+#undef CRL_APB_SDIO0_REF_CTRL_DIVISOR1_SHIFT 
+#undef CRL_APB_SDIO0_REF_CTRL_DIVISOR1_MASK 
+#define CRL_APB_SDIO0_REF_CTRL_DIVISOR1_DEFVAL                 0x01000F00
+#define CRL_APB_SDIO0_REF_CTRL_DIVISOR1_SHIFT                  16
+#define CRL_APB_SDIO0_REF_CTRL_DIVISOR1_MASK                   0x003F0000U
+
+/*
+* 6 bit divider
+*/
+#undef CRL_APB_SDIO0_REF_CTRL_DIVISOR0_DEFVAL 
+#undef CRL_APB_SDIO0_REF_CTRL_DIVISOR0_SHIFT 
+#undef CRL_APB_SDIO0_REF_CTRL_DIVISOR0_MASK 
+#define CRL_APB_SDIO0_REF_CTRL_DIVISOR0_DEFVAL                 0x01000F00
+#define CRL_APB_SDIO0_REF_CTRL_DIVISOR0_SHIFT                  8
+#define CRL_APB_SDIO0_REF_CTRL_DIVISOR0_MASK                   0x00003F00U
+
+/*
+* 000 = IOPLL; 010 = RPLL; 011 = VPLL; (This signal may only be toggled af
+    * ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
+    *  usually an issue, but designers must be aware.)
+*/
+#undef CRL_APB_SDIO0_REF_CTRL_SRCSEL_DEFVAL 
+#undef CRL_APB_SDIO0_REF_CTRL_SRCSEL_SHIFT 
+#undef CRL_APB_SDIO0_REF_CTRL_SRCSEL_MASK 
+#define CRL_APB_SDIO0_REF_CTRL_SRCSEL_DEFVAL                   0x01000F00
+#define CRL_APB_SDIO0_REF_CTRL_SRCSEL_SHIFT                    0
+#define CRL_APB_SDIO0_REF_CTRL_SRCSEL_MASK                     0x00000007U
+
+/*
+* Clock active signal. Switch to 0 to disable the clock
+*/
 #undef CRL_APB_SDIO1_REF_CTRL_CLKACT_DEFVAL 
 #undef CRL_APB_SDIO1_REF_CTRL_CLKACT_SHIFT 
 #undef CRL_APB_SDIO1_REF_CTRL_CLKACT_MASK 
@@ -1349,6 +1393,17 @@
 #define CRL_APB_SDIO1_REF_CTRL_SRCSEL_DEFVAL                   0x01000F00
 #define CRL_APB_SDIO1_REF_CTRL_SRCSEL_SHIFT                    0
 #define CRL_APB_SDIO1_REF_CTRL_SRCSEL_MASK                     0x00000007U
+
+/*
+* MIO pad selection for sdio0_rx_clk (feedback clock from the PAD) 00: MIO
+    *  [22] 01: MIO [38] 10: MIO [64] 11: MIO [64]
+*/
+#undef IOU_SLCR_SDIO_CLK_CTRL_SDIO0_RX_SRC_SEL_DEFVAL 
+#undef IOU_SLCR_SDIO_CLK_CTRL_SDIO0_RX_SRC_SEL_SHIFT 
+#undef IOU_SLCR_SDIO_CLK_CTRL_SDIO0_RX_SRC_SEL_MASK 
+#define IOU_SLCR_SDIO_CLK_CTRL_SDIO0_RX_SRC_SEL_DEFVAL         0x00000000
+#define IOU_SLCR_SDIO_CLK_CTRL_SDIO0_RX_SRC_SEL_SHIFT          0
+#define IOU_SLCR_SDIO_CLK_CTRL_SDIO0_RX_SRC_SEL_MASK           0x00000003U
 
 /*
 * MIO pad selection for sdio1_rx_clk (feedback clock from the PAD) 0: MIO
@@ -33018,6 +33073,12 @@
 #define IOU_SLCR_SD_CONFIG_REG1_OFFSET                                             0XFF18031C
 #undef IOU_SLCR_SD_DLL_CTRL_OFFSET 
 #define IOU_SLCR_SD_DLL_CTRL_OFFSET                                                0XFF180358
+#undef IOU_SLCR_SD_CONFIG_REG1_OFFSET 
+#define IOU_SLCR_SD_CONFIG_REG1_OFFSET                                             0XFF18031C
+#undef IOU_SLCR_SD_DLL_CTRL_OFFSET 
+#define IOU_SLCR_SD_DLL_CTRL_OFFSET                                                0XFF180358
+#undef IOU_SLCR_SD_CONFIG_REG3_OFFSET 
+#define IOU_SLCR_SD_CONFIG_REG3_OFFSET                                             0XFF180324
 #undef IOU_SLCR_SD_CONFIG_REG3_OFFSET 
 #define IOU_SLCR_SD_CONFIG_REG3_OFFSET                                             0XFF180324
 #undef CRL_APB_RST_LPD_IOU2_OFFSET 
@@ -33304,12 +33365,32 @@
 /*
 * Block level reset
 */
+#undef CRL_APB_RST_LPD_IOU2_SDIO0_RESET_DEFVAL 
+#undef CRL_APB_RST_LPD_IOU2_SDIO0_RESET_SHIFT 
+#undef CRL_APB_RST_LPD_IOU2_SDIO0_RESET_MASK 
+#define CRL_APB_RST_LPD_IOU2_SDIO0_RESET_DEFVAL                0x0017FFFF
+#define CRL_APB_RST_LPD_IOU2_SDIO0_RESET_SHIFT                 5
+#define CRL_APB_RST_LPD_IOU2_SDIO0_RESET_MASK                  0x00000020U
+
+/*
+* Block level reset
+*/
 #undef CRL_APB_RST_LPD_IOU2_SDIO1_RESET_DEFVAL 
 #undef CRL_APB_RST_LPD_IOU2_SDIO1_RESET_SHIFT 
 #undef CRL_APB_RST_LPD_IOU2_SDIO1_RESET_MASK 
 #define CRL_APB_RST_LPD_IOU2_SDIO1_RESET_DEFVAL                0x0017FFFF
 #define CRL_APB_RST_LPD_IOU2_SDIO1_RESET_SHIFT                 6
 #define CRL_APB_RST_LPD_IOU2_SDIO1_RESET_MASK                  0x00000040U
+
+/*
+* SD or eMMC selection on SDIO0 0: SD enabled 1: eMMC enabled
+*/
+#undef IOU_SLCR_CTRL_REG_SD_SD0_EMMC_SEL_DEFVAL 
+#undef IOU_SLCR_CTRL_REG_SD_SD0_EMMC_SEL_SHIFT 
+#undef IOU_SLCR_CTRL_REG_SD_SD0_EMMC_SEL_MASK 
+#define IOU_SLCR_CTRL_REG_SD_SD0_EMMC_SEL_DEFVAL               0x00000000
+#define IOU_SLCR_CTRL_REG_SD_SD0_EMMC_SEL_SHIFT                0
+#define IOU_SLCR_CTRL_REG_SD_SD0_EMMC_SEL_MASK                 0x00000001U
 
 /*
 * SD or eMMC selection on SDIO1 0: SD enabled 1: eMMC enabled
@@ -33320,6 +33401,17 @@
 #define IOU_SLCR_CTRL_REG_SD_SD1_EMMC_SEL_DEFVAL               0x00000000
 #define IOU_SLCR_CTRL_REG_SD_SD1_EMMC_SEL_SHIFT                15
 #define IOU_SLCR_CTRL_REG_SD_SD1_EMMC_SEL_MASK                 0x00008000U
+
+/*
+* Should be set based on the final product usage 00 - Removable SCard Slot
+    *  01 - Embedded Slot for One Device 10 - Shared Bus Slot 11 - Reserved
+*/
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_SLOTTYPE_DEFVAL 
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_SLOTTYPE_SHIFT 
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_SLOTTYPE_MASK 
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_SLOTTYPE_DEFVAL            0x0FFC0FFC
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_SLOTTYPE_SHIFT             12
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_SLOTTYPE_MASK              0x00003000U
 
 /*
 * Should be set based on the final product usage 00 - Removable SCard Slot
@@ -33342,6 +33434,47 @@
 #define IOU_SLCR_SD_CONFIG_REG2_SD1_8BIT_DEFVAL                0x0FFC0FFC
 #define IOU_SLCR_SD_CONFIG_REG2_SD1_8BIT_SHIFT                 18
 #define IOU_SLCR_SD_CONFIG_REG2_SD1_8BIT_MASK                  0x00040000U
+
+/*
+* 8-bit Support for Embedded Device 1: The Core supports 8-bit Interface 0
+    * : Supports only 4-bit SD Interface
+*/
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_8BIT_DEFVAL 
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_8BIT_SHIFT 
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_8BIT_MASK 
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_8BIT_DEFVAL                0x0FFC0FFC
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_8BIT_SHIFT                 2
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_8BIT_MASK                  0x00000004U
+
+/*
+* 1.8V Support 1: 1.8V supported 0: 1.8V not supported support
+*/
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_1P8V_DEFVAL 
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_1P8V_SHIFT 
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_1P8V_MASK 
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_1P8V_DEFVAL                0x0FFC0FFC
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_1P8V_SHIFT                 9
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_1P8V_MASK                  0x00000200U
+
+/*
+* 3.0V Support 1: 3.0V supported 0: 3.0V not supported support
+*/
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_3P0V_DEFVAL 
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_3P0V_SHIFT 
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_3P0V_MASK 
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_3P0V_DEFVAL                0x0FFC0FFC
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_3P0V_SHIFT                 8
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_3P0V_MASK                  0x00000100U
+
+/*
+* 3.3V Support 1: 3.3V supported 0: 3.3V not supported support
+*/
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_3P3V_DEFVAL 
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_3P3V_SHIFT 
+#undef IOU_SLCR_SD_CONFIG_REG2_SD0_3P3V_MASK 
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_3P3V_DEFVAL                0x0FFC0FFC
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_3P3V_SHIFT                 7
+#define IOU_SLCR_SD_CONFIG_REG2_SD0_3P3V_MASK                  0x00000080U
 
 /*
 * 1.8V Support 1: 1.8V supported 0: 1.8V not supported support
@@ -33376,6 +33509,37 @@
 /*
 * Base Clock Frequency for SD Clock. This is the frequency of the xin_clk.
 */
+#undef IOU_SLCR_SD_CONFIG_REG1_SD0_BASECLK_DEFVAL 
+#undef IOU_SLCR_SD_CONFIG_REG1_SD0_BASECLK_SHIFT 
+#undef IOU_SLCR_SD_CONFIG_REG1_SD0_BASECLK_MASK 
+#define IOU_SLCR_SD_CONFIG_REG1_SD0_BASECLK_DEFVAL             0x32403240
+#define IOU_SLCR_SD_CONFIG_REG1_SD0_BASECLK_SHIFT              7
+#define IOU_SLCR_SD_CONFIG_REG1_SD0_BASECLK_MASK               0x00007F80U
+
+/*
+* Configures the Number of Taps (Phases) of the rxclk_in that is supported
+    *  for auto tuning mode
+*/
+#undef IOU_SLCR_SD_CONFIG_REG1_SD0_TUNIGCOUNT_DEFVAL 
+#undef IOU_SLCR_SD_CONFIG_REG1_SD0_TUNIGCOUNT_SHIFT 
+#undef IOU_SLCR_SD_CONFIG_REG1_SD0_TUNIGCOUNT_MASK 
+#define IOU_SLCR_SD_CONFIG_REG1_SD0_TUNIGCOUNT_DEFVAL          0x32403240
+#define IOU_SLCR_SD_CONFIG_REG1_SD0_TUNIGCOUNT_SHIFT           1
+#define IOU_SLCR_SD_CONFIG_REG1_SD0_TUNIGCOUNT_MASK            0x0000007EU
+
+/*
+* Reserved.
+*/
+#undef IOU_SLCR_SD_DLL_CTRL_RESERVED_2_DEFVAL 
+#undef IOU_SLCR_SD_DLL_CTRL_RESERVED_2_SHIFT 
+#undef IOU_SLCR_SD_DLL_CTRL_RESERVED_2_MASK 
+#define IOU_SLCR_SD_DLL_CTRL_RESERVED_2_DEFVAL                 0x00080008
+#define IOU_SLCR_SD_DLL_CTRL_RESERVED_2_SHIFT                  19
+#define IOU_SLCR_SD_DLL_CTRL_RESERVED_2_MASK                   0x00080000U
+
+/*
+* Base Clock Frequency for SD Clock. This is the frequency of the xin_clk.
+*/
 #undef IOU_SLCR_SD_CONFIG_REG1_SD1_BASECLK_DEFVAL 
 #undef IOU_SLCR_SD_CONFIG_REG1_SD1_BASECLK_SHIFT 
 #undef IOU_SLCR_SD_CONFIG_REG1_SD1_BASECLK_MASK 
@@ -33403,6 +33567,19 @@
 #define IOU_SLCR_SD_DLL_CTRL_RESERVED_DEFVAL                   0x00080008
 #define IOU_SLCR_SD_DLL_CTRL_RESERVED_SHIFT                    3
 #define IOU_SLCR_SD_DLL_CTRL_RESERVED_MASK                     0x00000008U
+
+/*
+* This is the Timer Count for Re-Tuning Timer for Re-Tuning Mode 1 to 3. S
+    * etting to 4'b0 disables Re-Tuning Timer. 0h - Get information via other
+    * source 1h = 1 seconds 2h = 2 seconds 3h = 4 seconds 4h = 8 seconds -- n
+    * = 2(n-1) seconds -- Bh = 1024 seconds Fh - Ch = Reserved
+*/
+#undef IOU_SLCR_SD_CONFIG_REG3_SD0_RETUNETMR_DEFVAL 
+#undef IOU_SLCR_SD_CONFIG_REG3_SD0_RETUNETMR_SHIFT 
+#undef IOU_SLCR_SD_CONFIG_REG3_SD0_RETUNETMR_MASK 
+#define IOU_SLCR_SD_CONFIG_REG3_SD0_RETUNETMR_DEFVAL           0x06070607
+#define IOU_SLCR_SD_CONFIG_REG3_SD0_RETUNETMR_SHIFT            6
+#define IOU_SLCR_SD_CONFIG_REG3_SD0_RETUNETMR_MASK             0x000003C0U
 
 /*
 * This is the Timer Count for Re-Tuning Timer for Re-Tuning Mode 1 to 3. S

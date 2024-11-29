@@ -1,37 +1,37 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.728984",
-   "Default View_TopLeft":"-160,-336",
+   "Default View_TopLeft":"-158,-390",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
-preplace port ADC_SPI -pg 1 -lvl 3 -x 1040 -y -220 -defaultsOSRD
-preplace port ADC_nRST -pg 1 -lvl 3 -x 1040 -y -40 -defaultsOSRD
-preplace port TempSensor_IIC -pg 1 -lvl 3 -x 1040 -y 120 -defaultsOSRD
-preplace port RGB_LED1 -pg 1 -lvl 3 -x 1040 -y 320 -defaultsOSRD
-preplace port RGB_LED2 -pg 1 -lvl 3 -x 1040 -y 350 -defaultsOSRD
+preplace port ADC_SPI -pg 1 -lvl 3 -x 1060 -y -220 -defaultsOSRD
+preplace port ADC_nRST -pg 1 -lvl 3 -x 1060 -y -40 -defaultsOSRD
+preplace port TempSensor_IIC -pg 1 -lvl 3 -x 1060 -y 120 -defaultsOSRD
+preplace port RGB_LED1 -pg 1 -lvl 3 -x 1060 -y 320 -defaultsOSRD
+preplace port RGB_LED2 -pg 1 -lvl 3 -x 1060 -y 350 -defaultsOSRD
 preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -x 410 -y -20 -defaultsOSRD
-preplace inst axi_quad_spi_0 -pg 1 -lvl 2 -x 900 -y -210 -defaultsOSRD
+preplace inst axi_quad_spi_0 -pg 1 -lvl 2 -x 910 -y -210 -defaultsOSRD
 preplace inst axi_smc -pg 1 -lvl 1 -x 410 -y 150 -defaultsOSRD
 preplace inst rst_ps8_0_100M -pg 1 -lvl 1 -x 410 -y -270 -defaultsOSRD
-preplace inst axi_gpio_0 -pg 1 -lvl 2 -x 900 -y 340 -defaultsOSRD
-preplace inst axi_gpio_1 -pg 1 -lvl 2 -x 900 -y -40 -defaultsOSRD
-preplace inst axi_iic_0 -pg 1 -lvl 2 -x 900 -y 140 -defaultsOSRD
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 2 100 -370 770
+preplace inst axi_gpio_0 -pg 1 -lvl 2 -x 910 -y 340 -defaultsOSRD
+preplace inst axi_gpio_1 -pg 1 -lvl 2 -x 910 -y -40 -defaultsOSRD
+preplace inst axi_iic_0 -pg 1 -lvl 2 -x 910 -y 140 -defaultsOSRD
+preplace netloc rst_ps8_0_100M_peripheral_aresetn 1 0 2 120 240 760
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 2 100 -370 780
 preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 90 -380 720
-preplace netloc rst_ps8_0_100M_peripheral_aresetn 1 0 2 120 240 750
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 0 2 110 -120 700
-preplace netloc axi_smc_M00_AXI 1 1 1 740 -240n
-preplace netloc axi_smc_M01_AXI 1 1 1 760 140n
-preplace netloc axi_smc_M02_AXI 1 1 1 730 -60n
-preplace netloc axi_smc_M03_AXI 1 1 1 780 120n
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 0 2 120 -110 710
-preplace netloc axi_quad_spi_0_SPI_0 1 2 1 N -220
+preplace netloc axi_gpio_0_GPIO 1 2 1 1030 320n
+preplace netloc axi_gpio_0_GPIO2 1 2 1 N 350
 preplace netloc axi_gpio_1_GPIO 1 2 1 N -40
 preplace netloc axi_iic_0_IIC 1 2 1 N 120
-preplace netloc axi_gpio_0_GPIO 1 2 1 1020 320n
-preplace netloc axi_gpio_0_GPIO2 1 2 1 N 350
-levelinfo -pg 1 -270 410 900 1040
+preplace netloc axi_quad_spi_0_SPI_0 1 2 1 N -220
+preplace netloc axi_smc_M00_AXI 1 1 1 740 -240n
+preplace netloc axi_smc_M01_AXI 1 1 1 770 140n
+preplace netloc axi_smc_M02_AXI 1 1 1 730 -60n
+preplace netloc axi_smc_M03_AXI 1 1 1 790 120n
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 0 2 110 -120 700
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 0 2 120 -110 710
+levelinfo -pg 1 -270 410 910 1060
 pagesize -pg 1 -db -bbox -sgen -270 -440 1370 620
 "
 }

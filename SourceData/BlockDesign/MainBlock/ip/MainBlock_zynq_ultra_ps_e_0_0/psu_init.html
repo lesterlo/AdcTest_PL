@@ -461,10 +461,10 @@ inout
 MIO 13
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[13]
+sdio0_data_out[0]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -487,10 +487,10 @@ inout
 MIO 14
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[14]
+sdio0_data_out[1]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -513,10 +513,10 @@ inout
 MIO 15
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[15]
+sdio0_data_out[2]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -539,10 +539,10 @@ inout
 MIO 16
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[16]
+sdio0_data_out[3]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -565,10 +565,10 @@ inout
 MIO 17
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[17]
+sdio0_data_out[4]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -591,10 +591,10 @@ inout
 MIO 18
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[18]
+sdio0_data_out[5]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -617,10 +617,10 @@ inout
 MIO 19
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[19]
+sdio0_data_out[6]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -643,10 +643,10 @@ inout
 MIO 20
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[20]
+sdio0_data_out[7]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -669,10 +669,10 @@ inout
 MIO 21
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[21]
+sdio0_cmd_out
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -695,10 +695,10 @@ inout
 MIO 22
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[22]
+sdio0_clk_out
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -710,7 +710,7 @@ fast
 pullup
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-inout
+out
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 12
@@ -721,10 +721,10 @@ inout
 MIO 23
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO0 MIO
+SD 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio0[23]
+sdio0_bus_pow
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 cmos
@@ -736,7 +736,7 @@ fast
 pullup
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-inout
+out
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 12
@@ -2262,6 +2262,17 @@ IOPLL
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 300.000000
+</TD>
+</TR>
+<TR valign="top">
+<TD width=10% BGCOLOR=#FBF5EF>
+SDIO0 freq (MHz)
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+IOPLL
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+187.500000
 </TD>
 </TR>
 <TR valign="top">

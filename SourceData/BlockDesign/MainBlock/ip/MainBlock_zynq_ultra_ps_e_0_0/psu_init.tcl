@@ -689,6 +689,25 @@ set psu_clock_init_data {
 		# This register controls this reference clock
 		#(OFFSET, MASK, VALUE)      (0XFF5E0068, 0x013F3F07U ,0x01010500U)  */
     mask_write 0XFF5E0068 0x013F3F07 0x01010500
+		# Register : SDIO0_REF_CTRL @ 0XFF5E006C</p>
+
+		# Clock active signal. Switch to 0 to disable the clock
+		# PSU_CRL_APB_SDIO0_REF_CTRL_CLKACT                                               0x1
+
+		# 6 bit divider
+		# PSU_CRL_APB_SDIO0_REF_CTRL_DIVISOR1                                             0x1
+
+		# 6 bit divider
+		# PSU_CRL_APB_SDIO0_REF_CTRL_DIVISOR0                                             0x8
+
+		# 000 = IOPLL; 010 = RPLL; 011 = VPLL; (This signal may only be toggled af
+    # ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
+    #  usually an issue, but designers must be aware.)
+		# PSU_CRL_APB_SDIO0_REF_CTRL_SRCSEL                                               0x0
+
+		# This register controls this reference clock
+		#(OFFSET, MASK, VALUE)      (0XFF5E006C, 0x013F3F07U ,0x01010800U)  */
+    mask_write 0XFF5E006C 0x013F3F07 0x01010800
 		# Register : SDIO1_REF_CTRL @ 0XFF5E0070</p>
 
 		# Clock active signal. Switch to 0 to disable the clock
@@ -710,13 +729,17 @@ set psu_clock_init_data {
     mask_write 0XFF5E0070 0x013F3F07 0x01010800
 		# Register : SDIO_CLK_CTRL @ 0XFF18030C</p>
 
+		# MIO pad selection for sdio0_rx_clk (feedback clock from the PAD) 00: MIO
+    #  [22] 01: MIO [38] 10: MIO [64] 11: MIO [64]
+		# PSU_IOU_SLCR_SDIO_CLK_CTRL_SDIO0_RX_SRC_SEL                                     0
+
 		# MIO pad selection for sdio1_rx_clk (feedback clock from the PAD) 0: MIO
     # [51] 1: MIO [76]
 		# PSU_IOU_SLCR_SDIO_CLK_CTRL_SDIO1_RX_SRC_SEL                                     0
 
 		# SoC Debug Clock Control
-		#(OFFSET, MASK, VALUE)      (0XFF18030C, 0x00020000U ,0x00000000U)  */
-    mask_write 0XFF18030C 0x00020000 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF18030C, 0x00020003U ,0x00000000U)  */
+    mask_write 0XFF18030C 0x00020003 0x00000000
 		# Register : UART0_REF_CTRL @ 0XFF5E0074</p>
 
 		# Clock active signal. Switch to 0 to disable the clock
@@ -10247,7 +10270,7 @@ set psu_mio_init_data {
     # (8-bit Data bus) = sd0, Output, sdio0_data_out[0]- (8-bit Data bus) 2= t
     # est_scan, Input, test_scan_in[13]- (Test Scan Port) = test_scan, Output,
     #  test_scan_out[13]- (Test Scan Port) 3= Not Used
-		# PSU_IOU_SLCR_MIO_PIN_13_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_13_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[13]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[13]- (GPIO bank 0) 1= can1, Input, can1_ph
@@ -10260,8 +10283,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_13_L3_SEL                                                  0
 
 		# Configures MIO Pin 13 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180034, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF180034 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180034, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF180034 0x000000FE 0x00000008
 		# Register : MIO_PIN_14 @ 0XFF180038</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10275,7 +10298,7 @@ set psu_mio_init_data {
     # (8-bit Data bus) = sd0, Output, sdio0_data_out[1]- (8-bit Data bus) 2= t
     # est_scan, Input, test_scan_in[14]- (Test Scan Port) = test_scan, Output,
     #  test_scan_out[14]- (Test Scan Port) 3= Not Used
-		# PSU_IOU_SLCR_MIO_PIN_14_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_14_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[14]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[14]- (GPIO bank 0) 1= can0, Input, can0_ph
@@ -10287,8 +10310,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_14_L3_SEL                                                  0
 
 		# Configures MIO Pin 14 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180038, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF180038 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180038, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF180038 0x000000FE 0x00000008
 		# Register : MIO_PIN_15 @ 0XFF18003C</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10302,7 +10325,7 @@ set psu_mio_init_data {
     # (8-bit Data bus) = sd0, Output, sdio0_data_out[2]- (8-bit Data bus) 2= t
     # est_scan, Input, test_scan_in[15]- (Test Scan Port) = test_scan, Output,
     #  test_scan_out[15]- (Test Scan Port) 3= Not Used
-		# PSU_IOU_SLCR_MIO_PIN_15_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_15_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[15]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[15]- (GPIO bank 0) 1= can0, Output, can0_p
@@ -10315,8 +10338,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_15_L3_SEL                                                  0
 
 		# Configures MIO Pin 15 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF18003C, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF18003C 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF18003C, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF18003C 0x000000FE 0x00000008
 		# Register : MIO_PIN_16 @ 0XFF180040</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10330,7 +10353,7 @@ set psu_mio_init_data {
     # (8-bit Data bus) = sd0, Output, sdio0_data_out[3]- (8-bit Data bus) 2= t
     # est_scan, Input, test_scan_in[16]- (Test Scan Port) = test_scan, Output,
     #  test_scan_out[16]- (Test Scan Port) 3= Not Used
-		# PSU_IOU_SLCR_MIO_PIN_16_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_16_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[16]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[16]- (GPIO bank 0) 1= can1, Output, can1_p
@@ -10343,8 +10366,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_16_L3_SEL                                                  0
 
 		# Configures MIO Pin 16 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180040, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF180040 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180040, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF180040 0x000000FE 0x00000008
 		# Register : MIO_PIN_17 @ 0XFF180044</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10358,7 +10381,7 @@ set psu_mio_init_data {
     # (8-bit Data bus) = sd0, Output, sdio0_data_out[4]- (8-bit Data bus) 2= t
     # est_scan, Input, test_scan_in[17]- (Test Scan Port) = test_scan, Output,
     #  test_scan_out[17]- (Test Scan Port) 3= Not Used
-		# PSU_IOU_SLCR_MIO_PIN_17_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_17_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[17]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[17]- (GPIO bank 0) 1= can1, Input, can1_ph
@@ -10371,8 +10394,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_17_L3_SEL                                                  0
 
 		# Configures MIO Pin 17 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180044, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF180044 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180044, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF180044 0x000000FE 0x00000008
 		# Register : MIO_PIN_18 @ 0XFF180048</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10387,7 +10410,7 @@ set psu_mio_init_data {
     # est_scan, Input, test_scan_in[18]- (Test Scan Port) = test_scan, Output,
     #  test_scan_out[18]- (Test Scan Port) 3= csu, Input, csu_ext_tamper- (CSU
     #  Ext Tamper)
-		# PSU_IOU_SLCR_MIO_PIN_18_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_18_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[18]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[18]- (GPIO bank 0) 1= can0, Input, can0_ph
@@ -10399,8 +10422,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_18_L3_SEL                                                  0
 
 		# Configures MIO Pin 18 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180048, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF180048 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180048, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF180048 0x000000FE 0x00000008
 		# Register : MIO_PIN_19 @ 0XFF18004C</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10415,7 +10438,7 @@ set psu_mio_init_data {
     # est_scan, Input, test_scan_in[19]- (Test Scan Port) = test_scan, Output,
     #  test_scan_out[19]- (Test Scan Port) 3= csu, Input, csu_ext_tamper- (CSU
     #  Ext Tamper)
-		# PSU_IOU_SLCR_MIO_PIN_19_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_19_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[19]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[19]- (GPIO bank 0) 1= can0, Output, can0_p
@@ -10427,8 +10450,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_19_L3_SEL                                                  0
 
 		# Configures MIO Pin 19 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF18004C, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF18004C 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF18004C, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF18004C 0x000000FE 0x00000008
 		# Register : MIO_PIN_20 @ 0XFF180050</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10443,7 +10466,7 @@ set psu_mio_init_data {
     # est_scan, Input, test_scan_in[20]- (Test Scan Port) = test_scan, Output,
     #  test_scan_out[20]- (Test Scan Port) 3= csu, Input, csu_ext_tamper- (CSU
     #  Ext Tamper)
-		# PSU_IOU_SLCR_MIO_PIN_20_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_20_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[20]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[20]- (GPIO bank 0) 1= can1, Output, can1_p
@@ -10455,8 +10478,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_20_L3_SEL                                                  0
 
 		# Configures MIO Pin 20 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180050, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF180050 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180050, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF180050 0x000000FE 0x00000008
 		# Register : MIO_PIN_21 @ 0XFF180054</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10471,7 +10494,7 @@ set psu_mio_init_data {
     # t_scan, Input, test_scan_in[21]- (Test Scan Port) = test_scan, Output, t
     # est_scan_out[21]- (Test Scan Port) 3= csu, Input, csu_ext_tamper- (CSU E
     # xt Tamper)
-		# PSU_IOU_SLCR_MIO_PIN_21_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_21_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[21]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[21]- (GPIO bank 0) 1= can1, Input, can1_ph
@@ -10484,8 +10507,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_21_L3_SEL                                                  0
 
 		# Configures MIO Pin 21 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180054, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF180054 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180054, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF180054 0x000000FE 0x00000008
 		# Register : MIO_PIN_22 @ 0XFF180058</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10499,7 +10522,7 @@ set psu_mio_init_data {
     # (SDSDIO clock) 2= test_scan, Input, test_scan_in[22]- (Test Scan Port) =
     #  test_scan, Output, test_scan_out[22]- (Test Scan Port) 3= csu, Input, c
     # su_ext_tamper- (CSU Ext Tamper)
-		# PSU_IOU_SLCR_MIO_PIN_22_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_22_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[22]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[22]- (GPIO bank 0) 1= can0, Input, can0_ph
@@ -10512,8 +10535,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_22_L3_SEL                                                  0
 
 		# Configures MIO Pin 22 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180058, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF180058 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180058, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF180058 0x000000FE 0x00000008
 		# Register : MIO_PIN_23 @ 0XFF18005C</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10527,7 +10550,7 @@ set psu_mio_init_data {
     # (SD card bus power) 2= test_scan, Input, test_scan_in[23]- (Test Scan Po
     # rt) = test_scan, Output, test_scan_out[23]- (Test Scan Port) 3= csu, Inp
     # ut, csu_ext_tamper- (CSU Ext Tamper)
-		# PSU_IOU_SLCR_MIO_PIN_23_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_23_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[23]- (GPIO bank 0) 0=
     # gpio0, Output, gpio_0_pin_out[23]- (GPIO bank 0) 1= can0, Output, can0_p
@@ -10540,8 +10563,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_23_L3_SEL                                                  0
 
 		# Configures MIO Pin 23 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF18005C, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF18005C 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF18005C, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF18005C 0x000000FE 0x00000008
 		# Register : MIO_PIN_24 @ 0XFF180060</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -13974,21 +13997,31 @@ set psu_peripherals_init_data {
 		# Register : RST_LPD_IOU2 @ 0XFF5E0238</p>
 
 		# Block level reset
+		# PSU_CRL_APB_RST_LPD_IOU2_SDIO0_RESET                                            0
+
+		# Block level reset
 		# PSU_CRL_APB_RST_LPD_IOU2_SDIO1_RESET                                            0
 
 		# Software control register for the IOU block. Each bit will cause a singl
     # erperipheral or part of the peripheral to be reset.
-		#(OFFSET, MASK, VALUE)      (0XFF5E0238, 0x00000040U ,0x00000000U)  */
-    mask_write 0XFF5E0238 0x00000040 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF5E0238, 0x00000060U ,0x00000000U)  */
+    mask_write 0XFF5E0238 0x00000060 0x00000000
 		# Register : CTRL_REG_SD @ 0XFF180310</p>
+
+		# SD or eMMC selection on SDIO0 0: SD enabled 1: eMMC enabled
+		# PSU_IOU_SLCR_CTRL_REG_SD_SD0_EMMC_SEL                                           1
 
 		# SD or eMMC selection on SDIO1 0: SD enabled 1: eMMC enabled
 		# PSU_IOU_SLCR_CTRL_REG_SD_SD1_EMMC_SEL                                           0
 
 		# SD eMMC selection
-		#(OFFSET, MASK, VALUE)      (0XFF180310, 0x00008000U ,0x00000000U)  */
-    mask_write 0XFF180310 0x00008000 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180310, 0x00008001U ,0x00000001U)  */
+    mask_write 0XFF180310 0x00008001 0x00000001
 		# Register : SD_CONFIG_REG2 @ 0XFF180320</p>
+
+		# Should be set based on the final product usage 00 - Removable SCard Slot
+    #  01 - Embedded Slot for One Device 10 - Shared Bus Slot 11 - Reserved
+		# PSU_IOU_SLCR_SD_CONFIG_REG2_SD0_SLOTTYPE                                        1
 
 		# Should be set based on the final product usage 00 - Removable SCard Slot
     #  01 - Embedded Slot for One Device 10 - Shared Bus Slot 11 - Reserved
@@ -13997,6 +14030,19 @@ set psu_peripherals_init_data {
 		# 8-bit Support for Embedded Device 1: The Core supports 8-bit Interface 0
     # : Supports only 4-bit SD Interface
 		# PSU_IOU_SLCR_SD_CONFIG_REG2_SD1_8BIT                                            0
+
+		# 8-bit Support for Embedded Device 1: The Core supports 8-bit Interface 0
+    # : Supports only 4-bit SD Interface
+		# PSU_IOU_SLCR_SD_CONFIG_REG2_SD0_8BIT                                            1
+
+		# 1.8V Support 1: 1.8V supported 0: 1.8V not supported support
+		# PSU_IOU_SLCR_SD_CONFIG_REG2_SD0_1P8V                                            1
+
+		# 3.0V Support 1: 3.0V supported 0: 3.0V not supported support
+		# PSU_IOU_SLCR_SD_CONFIG_REG2_SD0_3P0V                                            0
+
+		# 3.3V Support 1: 3.3V supported 0: 3.3V not supported support
+		# PSU_IOU_SLCR_SD_CONFIG_REG2_SD0_3P3V                                            1
 
 		# 1.8V Support 1: 1.8V supported 0: 1.8V not supported support
 		# PSU_IOU_SLCR_SD_CONFIG_REG2_SD1_1P8V                                            0
@@ -14008,8 +14054,29 @@ set psu_peripherals_init_data {
 		# PSU_IOU_SLCR_SD_CONFIG_REG2_SD1_3P3V                                            1
 
 		# SD Config Register 2
-		#(OFFSET, MASK, VALUE)      (0XFF180320, 0x33840000U ,0x00800000U)  */
-    mask_write 0XFF180320 0x33840000 0x00800000
+		#(OFFSET, MASK, VALUE)      (0XFF180320, 0x33843384U ,0x00801284U)  */
+    mask_write 0XFF180320 0x33843384 0x00801284
+		# : SD0 BASE CLOCK
+		# Register : SD_CONFIG_REG1 @ 0XFF18031C</p>
+
+		# Base Clock Frequency for SD Clock. This is the frequency of the xin_clk.
+		# PSU_IOU_SLCR_SD_CONFIG_REG1_SD0_BASECLK                                         0xc8
+
+		# Configures the Number of Taps (Phases) of the rxclk_in that is supported
+    #  for auto tuning mode
+		# PSU_IOU_SLCR_SD_CONFIG_REG1_SD0_TUNIGCOUNT                                      0x28
+
+		# SD Config Register 1
+		#(OFFSET, MASK, VALUE)      (0XFF18031C, 0x00007FFEU ,0x00006450U)  */
+    mask_write 0XFF18031C 0x00007FFE 0x00006450
+		# Register : SD_DLL_CTRL @ 0XFF180358</p>
+
+		# Reserved.
+		# PSU_IOU_SLCR_SD_DLL_CTRL_RESERVED_2                                             1
+
+		# SDIO status register
+		#(OFFSET, MASK, VALUE)      (0XFF180358, 0x00080000U ,0x00080000U)  */
+    mask_write 0XFF180358 0x00080000 0x00080000
 		# : SD1 BASE CLOCK
 		# Register : SD_CONFIG_REG1 @ 0XFF18031C</p>
 
@@ -14031,6 +14098,18 @@ set psu_peripherals_init_data {
 		# SDIO status register
 		#(OFFSET, MASK, VALUE)      (0XFF180358, 0x00000008U ,0x00000008U)  */
     mask_write 0XFF180358 0x00000008 0x00000008
+		# : SD0 RETUNER
+		# Register : SD_CONFIG_REG3 @ 0XFF180324</p>
+
+		# This is the Timer Count for Re-Tuning Timer for Re-Tuning Mode 1 to 3. S
+    # etting to 4'b0 disables Re-Tuning Timer. 0h - Get information via other
+    # source 1h = 1 seconds 2h = 2 seconds 3h = 4 seconds 4h = 8 seconds -- n
+    # = 2(n-1) seconds -- Bh = 1024 seconds Fh - Ch = Reserved
+		# PSU_IOU_SLCR_SD_CONFIG_REG3_SD0_RETUNETMR                                       0X0
+
+		# SD Config Register 3
+		#(OFFSET, MASK, VALUE)      (0XFF180324, 0x000003C0U ,0x00000000U)  */
+    mask_write 0XFF180324 0x000003C0 0x00000000
 		# : SD1 RETUNER
 		# Register : SD_CONFIG_REG3 @ 0XFF180324</p>
 
