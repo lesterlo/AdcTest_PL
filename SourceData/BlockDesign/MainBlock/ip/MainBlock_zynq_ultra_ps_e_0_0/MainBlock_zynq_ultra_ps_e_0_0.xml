@@ -31751,7 +31751,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:52926e89</spirit:value>
+            <spirit:value>9:f74c5fae</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31766,11 +31766,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 29 21:19:03 UTC 2024</spirit:value>
+            <spirit:value>Fri Jan 03 21:09:22 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:52926e89</spirit:value>
+            <spirit:value>9:f74c5fae</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31785,11 +31785,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 29 21:19:00 UTC 2024</spirit:value>
+            <spirit:value>Fri Jan 03 21:09:20 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2aad3683</spirit:value>
+            <spirit:value>9:130e7ebc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31800,7 +31800,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2aad3683</spirit:value>
+            <spirit:value>9:130e7ebc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31814,11 +31814,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 29 21:20:21 UTC 2024</spirit:value>
+            <spirit:value>Fri Jan 03 21:10:11 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2aad3683</spirit:value>
+            <spirit:value>9:130e7ebc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31829,7 +31829,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2aad3683</spirit:value>
+            <spirit:value>9:130e7ebc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31840,7 +31840,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2aad3683</spirit:value>
+            <spirit:value>9:130e7ebc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31856,11 +31856,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 29 21:19:03 UTC 2024</spirit:value>
+            <spirit:value>Fri Jan 03 21:09:21 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6cc095bb</spirit:value>
+            <spirit:value>9:cbc0b649</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>sim_type</spirit:name>
@@ -31880,11 +31880,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 29 21:19:03 UTC 2024</spirit:value>
+            <spirit:value>Fri Jan 03 21:09:22 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6cc095bb</spirit:value>
+            <spirit:value>9:cbc0b649</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>sim_type</spirit:name>
@@ -31904,11 +31904,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 29 21:19:02 UTC 2024</spirit:value>
+            <spirit:value>Fri Jan 03 21:09:21 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2aad3683</spirit:value>
+            <spirit:value>9:130e7ebc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -79916,7 +79916,7 @@ ta_out[0]#sdio1_data_out[1]#sdio1_data_out[2]#sdio1_data_out[3]#sdio1_cmd_out#sd
     <spirit:parameter>
       <spirit:name>PSU__GEN_IPI_7__MASTER</spirit:name>
       <spirit:displayName>GEN_IPI_7</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__GEN_IPI_7__MASTER" spirit:choiceRef="choice_list_d112c6b4">NONE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__GEN_IPI_7__MASTER" spirit:choiceRef="choice_list_d112c6b4">APU</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__GEN_IPI_8__MASTER</spirit:name>
@@ -81761,6 +81761,7 @@ ta_out[0]#sdio1_data_out[1]#sdio1_data_out[2]#sdio1_data_out[3]#sdio1_cmd_out#sd
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__GEM2_COHERENCY" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__GEM2_ROUTE_THROUGH_FPD" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__GEM__TSU__ENABLE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__GEN_IPI_7__MASTER" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__GPIO0_MIO__IO" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__GPIO0_MIO__PERIPHERAL__ENABLE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__GPIO1_MIO__IO" xilinx:valueSource="user"/>

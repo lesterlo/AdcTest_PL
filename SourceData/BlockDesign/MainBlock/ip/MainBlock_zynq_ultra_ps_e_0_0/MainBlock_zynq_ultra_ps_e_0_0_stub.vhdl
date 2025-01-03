@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
--- Date        : Fri Nov 29 16:20:21 2024
+-- Date        : Fri Jan  3 16:10:11 2025
 -- Host        : AEI-D0005 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/FPGA_ws/vivado_ws/AdcTest_PL/SourceData/BlockDesign/MainBlock/ip/MainBlock_zynq_ultra_ps_e_0_0/MainBlock_zynq_ultra_ps_e_0_0_stub.vhdl
